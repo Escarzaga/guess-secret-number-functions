@@ -63,15 +63,20 @@ def get_top_scores():
 
 
 #Jugar
-while True:
-    selection = input("Would you like to A) play a new game, B) see the best scores, or C) quit?")
+def main():
+    while True:
+        selection = input("Would you like to A) play a new game, B) see the best scores, or C) quit?")
 
-    if selection.upper() == "A":
-        level = input("Difficulty level [easy/hard]: ")
-        level.lower()
-        play_game(level=level)
-    elif selection.upper() == "B":
-        for score_dict in get_top_scores():
-            print(str(score_dict["attempts"]) + " attempts, date: " + score_dict.get("date"))
-    else:
-        break
+        if selection.upper() == "A":
+            level = input("Difficulty level [easy/hard]: ")
+            level.lower()
+            play_game(level=level)
+        elif selection.upper() == "B":
+            for score_dict in get_top_scores():
+                print(str(score_dict["attempts"]) + " attempts, date: " + score_dict.get("date"))
+        else:
+            break
+
+
+if __name__ == "__main__":
+    main()
